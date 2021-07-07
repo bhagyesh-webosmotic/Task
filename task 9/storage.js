@@ -21,7 +21,7 @@ class Storage {
 				if (element.id == id) {
 					console.log("matched");
 					const index = dataArray.indexOf(element);
-					console.log(index);
+					// console.log(index);
 					dataArray.splice(index, 1);
 				}
 			});
@@ -30,10 +30,10 @@ class Storage {
 		}
 		refreshPage();
 	}
-	removeRow(rmId) {
+	removeRow(removeRowId) {
 		let dataArray = [];
 		dataArray = JSON.parse(localStorage["input"]);
-		dataArray.splice(rmId, 1);
+		dataArray.splice(removeRowId, 1);
 		localStorage["input"] = JSON.stringify(dataArray);
 		refreshPage();
 	}

@@ -27,9 +27,9 @@ class Form {
 			save.innerHTML = "save";
 			form.appendChild(save);
 			let remove = document.createElement("button");
+			remove.setAttribute("type", "button");
 			remove.setAttribute("name", fid);
 			remove.setAttribute("id", fid);
-			remove.setAttribute("type", "button");
 			remove.setAttribute("class", "btn");
 			remove.setAttribute("onclick", "removeTempRow(event)");
 			remove.innerHTML = "Remove";

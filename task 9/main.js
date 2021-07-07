@@ -28,9 +28,9 @@ function onAdd(e) {
 }
 function onRemove(e) {
 	e.preventDefault();
-	let rmId = e.target.getAttribute("name");
+	let removeRowId = e.target.getAttribute("name");
 	let SM = new Storage();
-	SM.removeRow(rmId);
+	SM.removeRow(removeRowId);
 }
 
 function clearForm() {
@@ -41,6 +41,7 @@ function createMainInstance(fid, type) {
 	// console.log(`fid:${fid},type:${type}`);
 	let sid = uuidv4();
 	const form = new Main(fid, sid, type);
+	clearForm();
 }
 
 function refreshPage() {
@@ -55,9 +56,11 @@ function refreshPage() {
 function removeTempRow(e) {
 	let targetId = e.target.id;
 	let targets = document.getElementsByName(targetId);
-	// let targets = document.getElementById(targetId);
-	for (var i of targets) {
-		console.log(i);
+	removeTempRowLoop(targets);
+}
+function removeTempRowLoop(targets) {
+	for (let i of targets) {
 		i.remove();
+		removeTempRowLoop(targets);
 	}
 }
