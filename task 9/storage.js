@@ -28,15 +28,16 @@ class Storage {
 			dataArray.push(obj);
 			localStorage["input"] = JSON.stringify(dataArray);
 		}
+		refreshPage();
 	}
 	removeRow(rmId) {
 		let dataArray = [];
 		dataArray = JSON.parse(localStorage["input"]);
 		dataArray.splice(rmId, 1);
 		localStorage["input"] = JSON.stringify(dataArray);
-		location.reload();
+		refreshPage();
 	}
-	dataRetrive() {
+	dataRetrieve() {
 		if (localStorage["input"] === undefined) {
 			localStorage["input"] = "[]";
 		} else {

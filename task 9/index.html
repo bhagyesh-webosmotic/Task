@@ -27,7 +27,7 @@
         </select>
         <input type="button" class="btn" value="Add"
             onclick="createMainInstance(document.forms[0][0].value, document.forms[0].element.value)" />
-        <button id="Refresh" class="btn" onclick="location.reload();">Refresh</button>
+        <button type="button" id="Refresh" class="btn" onclick="refreshPage();">Refresh</button>
         <br>
         </div>
         
@@ -37,6 +37,7 @@
     </form>
     </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
     <script src="./attrib.js"></script>
     <script src="./storage.js"></script>
     <script src="./form.js"></script>

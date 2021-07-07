@@ -8,6 +8,7 @@ function attrib(input, element) {
 				break;
 		}
 		input.setAttribute("type", element.type);
+		input.setAttribute("name", element.id);
 		input.setAttribute("value", element.id);
 		input.setAttribute("id", element.id);
 		if (element.type == "color") {

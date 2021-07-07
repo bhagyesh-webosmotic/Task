@@ -1,15 +1,13 @@
 class Form {
 	constructor(fid) {
 		this.fid = fid;
-		// this.save = function (e) {
-		// 	console.log(e.target);
-		// };
 	}
 
 	createForm(fid, type) {
 		if (fid) {
-			let form = document.getElementById("form");
+			let form = document.getElementById("dynamicForm");
 			let h3 = document.createElement("h3");
+			h3.setAttribute("name", fid);
 			let textNode = document.createTextNode(fid);
 			h3.appendChild(textNode);
 			form.appendChild(h3);
@@ -29,10 +27,11 @@ class Form {
 			save.innerHTML = "save";
 			form.appendChild(save);
 			let remove = document.createElement("button");
-			save.setAttribute("type", "button");
 			remove.setAttribute("name", fid);
+			remove.setAttribute("id", fid);
+			remove.setAttribute("type", "button");
 			remove.setAttribute("class", "btn");
-			remove.setAttribute("onclick", "location.reload();");
+			remove.setAttribute("onclick", "removeTempRow(event)");
 			remove.innerHTML = "Remove";
 			form.appendChild(remove);
 		}
