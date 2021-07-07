@@ -93,11 +93,18 @@ h3 {
 	width: 30%;
 }
 .colorPicker {
-	width: 32%;
+	width: 31%;
+	margin-left: 3px;
+	margin-right: 3px;
+	border: none;
 }
 @media screen and (max-width: 850px) {
 	.container {
 		width: 100%;
+	}
+	.colorPicker {
+		width: 30%;
+		margin-right: 7px;
 	}
 }
 @media screen and (max-width: 515px) {
@@ -115,5 +122,11 @@ h3 {
 	}
 	.colorPicker {
 		width: 45%;
+	}
+}
+@media screen and (min-width: 850px) {
+	.colorPicker {
+		width: 30%;
+		margin-right: 7px;
 	}
 }
