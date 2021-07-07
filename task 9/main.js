@@ -1,6 +1,8 @@
 window.onload = function () {
 	let FM = new Form(this.fid);
-	FM.displayForm();
+	let SM = new Storage(this.sid);
+	let dataArray = SM.dataRetrive();
+	FM.displayForm(dataArray);
 };
 
 class Main {

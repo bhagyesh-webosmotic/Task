@@ -36,4 +36,13 @@ class Storage {
 		localStorage["input"] = JSON.stringify(dataArray);
 		location.reload();
 	}
+	dataRetrive() {
+		if (localStorage["input"] === undefined) {
+			localStorage["input"] = "[]";
+		} else {
+			let dataArray = [];
+			dataArray = JSON.parse(localStorage["input"]);
+			return dataArray;
+		}
+	}
 }
