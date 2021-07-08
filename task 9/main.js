@@ -1,10 +1,8 @@
 window.onload = function () {
 	let SM = new Storage();
 	let dataArray = SM.dataRetrieve();
-
 	let FM = new Form();
 	FM.displayForm(dataArray);
-
 	const form = new Main();
 };
 function pageRefresh() {
@@ -12,6 +10,18 @@ function pageRefresh() {
 	FM.refreshPage();
 }
 function createMainInstance(fid, type) {
+	console.log(`fid:${fid}`);
+	let SM = new Storage();
+	let dataArray = SM.dataRetrieve();
+	let inputDOMRow = document.querySelectorAll(`input[name="${fid}"]`);
+	for (let i of dataArray) {
+		if (i.id == fid || inputDOMRow.length > 0) {
+			alert("please enter unique id");
+			return;
+			// let FM = new Form();
+			// FM.refreshPage();
+		}
+	}
 	let sid = uuidv4();
 	const form = new Main(fid, sid, type);
 	// clearForm();
@@ -21,7 +31,10 @@ class Main {
 		this.fid = fid;
 		this.sid = sid;
 		this.type = type;
+		// this.SM = new Storage(this.sid);
+		// this.dataArray = this.SM.dataRetrieve();
 		this.FM = new Form(this.fid);
+		// this.FM.displayForm(this.dataArray);
 		this.FM.createForm(this.fid, this.type); // (creates input field in DOM)
 		this.FM.onSave = function (e) {
 			let id = e.target.name;
